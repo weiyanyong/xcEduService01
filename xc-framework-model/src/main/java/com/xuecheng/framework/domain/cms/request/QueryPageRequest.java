@@ -8,6 +8,7 @@ import lombok.Data;
  equals、canEqual、hashCode、toString方法，如为final属性，
  则不会为该属性生成setter方法。*/
 public class QueryPageRequest {
+    //@ApiModelProperty：用对象接收参数时，描述对象的一个字段
     @ApiModelProperty("站点id")
     private  String siteId;
     private  String pageId;
