@@ -11,17 +11,22 @@
 <body>
 <div class="banner-roll">
     <div class="banner-item">
-        <div class="item" style="background-image: url(../img/widget-bannerB.jpg);"></div>
+<#--       <div class="item" style="background-image: url(http://www.xuecheng.com/img/widget-bannerB.jpg);"></div>
+        <div class="item" style="background-image: url(http://www.xuecheng.com/img/widget-bannerA.jpg);"></div>
+        <div class="item" style="background-image: url(http://www.xuecheng.com/img/widget-banner3.png);"></div>
+        <div class="item" style="background-image: url(http://www.xuecheng.com/img/widget-bannerB.jpg);"></div>
         <div class="item" style="background-image: url(../img/widget-bannerA.jpg);"></div>
-        <div class="item" style="background-image: url(../img/widget-banner3.png);"></div>
-        <div class="item" style="background-image: url(../img/widget-bannerB.jpg);"></div>
-        <div class="item" style="background-image: url(../img/widget-bannerA.jpg);"></div>
-        <div class="item" style="background-image: url(../img/widget-banner3.png);"></div>
+        <div class="item" style="background-image: url(../img/widget-banner3.png);"></div>-->
+       <#if model??>
+            <#list model as item>
+                <div class="item" style="background-image: url(${item.value});"></div>
+            </#list>
+        </#if>
     </div>
     <div class="indicators"></div>
 </div>
-<script type="text/javascript" src="/plugins/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="/plugins/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="http://www.xuecheng.com/plugins/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="http://www.xuecheng.com/plugins/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript">
     var tg = $('.banner-item .item');
     var num = 0;

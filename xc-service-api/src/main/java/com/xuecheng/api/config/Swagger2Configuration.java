@@ -18,8 +18,10 @@ public class Swagger2Configuration {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                //private ApiInfo apiInfo()
                 .apiInfo(apiInfo())
                 .select()
+                //扫描包
                 .apis(RequestHandlerSelectors.basePackage("com.xuecheng"))
                 .paths(PathSelectors.any())
                 .build();
