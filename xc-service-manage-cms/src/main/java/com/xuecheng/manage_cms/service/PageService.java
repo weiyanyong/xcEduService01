@@ -68,7 +68,7 @@ public class PageService {
 
 
 //分页查询
-    public QueryResponseResult findList( int page, int size, QueryPageRequest queryPageRequest) {
+    public QueryResponseResult findList(int page, int size, QueryPageRequest queryPageRequest) {
         if(queryPageRequest == null){
             queryPageRequest = new QueryPageRequest();
         }
