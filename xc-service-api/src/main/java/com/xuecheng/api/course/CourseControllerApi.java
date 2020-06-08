@@ -4,8 +4,10 @@ import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.CourseMarket;
 import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
+import com.xuecheng.framework.domain.course.ext.CourseView;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import com.xuecheng.framework.domain.course.request.CourseListRequest;
+import com.xuecheng.framework.domain.course.response.CoursePublishResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import io.swagger.annotations.Api;
@@ -13,6 +15,15 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(value="课程管理接口",description="课程管理接口，提供课程的增删改查")
 public interface CourseControllerApi {
+
+    @ApiOperation("课程发布")
+    public CoursePublishResult publish(String id);
+
+    @ApiOperation("预览课程(查询课程，并造数据通过feign远程调用cms服务存储到cmspage表)")
+    public CoursePublishResult preview(String id);
+
+    @ApiOperation("课程视图(数据)查询")
+    public CourseView courseview(String id);
 
     @ApiOperation("添加课程图片")
     public ResponseResult addCoursePic(String courseId,String pic);

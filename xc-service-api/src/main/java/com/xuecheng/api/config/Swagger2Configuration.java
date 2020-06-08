@@ -12,7 +12,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 //
 @Configuration
-//@EnableSwagger2扫描com.xuecheng下@RestController标注的类，生成接口文档
+//Swagger接口生成工作原理
+//项目启动会扫描组件@ComponentScan(basePackages={"com.xuecheng.api"})，从而扫描到@EnableSwagger2注解标志的配置类
+// 配置类中扫描com.xuecheng下@RestController标注的类（CmsPageController implements CmsPageControllerApi），
+// 根据CmsPageController此类实现的接口CmsPageControllerApi中的swagger的注解（@Api、@ApiOperation）生成swagger接口
 @EnableSwagger2
 public class Swagger2Configuration {
     @Bean

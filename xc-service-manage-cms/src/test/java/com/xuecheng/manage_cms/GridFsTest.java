@@ -32,10 +32,10 @@ public class GridFsTest {
 
     @Test
     public void testStore() throws FileNotFoundException {
-        File file = new File("d:/index_banner.ftl");
+        File file = new File("c:/course.ftl");
         FileInputStream fileInputStream = new FileInputStream(file);
 
-        ObjectId objectId = gridFsTemplate.store(fileInputStream, "index_banner.ftl");
+        ObjectId objectId = gridFsTemplate.store(fileInputStream, "couerse.ftl");
         System.out.println(objectId);
 
     }

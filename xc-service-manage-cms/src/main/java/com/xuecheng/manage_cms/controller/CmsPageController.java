@@ -4,6 +4,7 @@ import com.xuecheng.api.cms.CmsPageControllerApi;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.cms.response.CmsPostPageResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_cms.service.PageService;
@@ -13,6 +14,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/cms/page")
 public class CmsPageController implements CmsPageControllerApi {
+    @Override
+    @PostMapping("/postPageQuick")
+    public CmsPostPageResult postPageQuick(@RequestBody CmsPage cmsPage) {
+
+        return pageService.postPageQuick(cmsPage);
+    }
+
     @Autowired
     PageService pageService;
     //Ctrl  + I  :重写接口中的方法
@@ -61,5 +69,11 @@ public class CmsPageController implements CmsPageControllerApi {
     @PutMapping("/edit/{id}")
     public  CmsPageResult edit(@PathVariable("id") String id,@RequestBody CmsPage cmsPage){
         return pageService.update(id,cmsPage);
+    }
+
+    @Override
+    @PostMapping("/save")
+    public CmsPageResult save(@RequestBody   CmsPage cmsPage) {
+        return pageService.save(cmsPage);
     }
 }

@@ -3,11 +3,13 @@ package com.xuecheng.manage_cms;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+@EnableDiscoveryClient
 //启动类放在本项目的根路径下扫描manage_cms
 @SpringBootApplication
 @EntityScan("com.xuecheng.framework.domain.cms")//扫描实体类

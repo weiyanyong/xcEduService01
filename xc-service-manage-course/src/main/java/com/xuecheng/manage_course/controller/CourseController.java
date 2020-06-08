@@ -5,8 +5,10 @@ import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.CourseMarket;
 import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
+import com.xuecheng.framework.domain.course.ext.CourseView;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import com.xuecheng.framework.domain.course.request.CourseListRequest;
+import com.xuecheng.framework.domain.course.response.CoursePublishResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_course.service.CourseService;
@@ -19,6 +21,18 @@ public class CourseController implements CourseControllerApi {
     @Autowired
     CourseService courseService;
 
+    @Override
+    @GetMapping("/courseview/{id}")
+    public CourseView courseview(@PathVariable("id") String id) {
+        return courseService.getCoruseView(id);
+    }
+
+    @Override
+    @PostMapping("/preview/{id}")
+    public CoursePublishResult preview(@PathVariable("id") String id) {
+        return courseService.preview(id);
+
+    }
     @Override
     @GetMapping("/teachplan/list/{courseId}")
     public TeachplanNode findTeachplanList(@PathVariable("courseId") String courseId) {
@@ -38,7 +52,13 @@ public class CourseController implements CourseControllerApi {
     public ResponseResult addCoursePic(@RequestParam("courseId") String courseId,@RequestParam("pic") String pic ) {
         return courseService.addCoursePic(courseId,pic);
     }
-//url传参：{courseId}-----@PathVariable("courseId")
+
+    @Override
+    @PostMapping("/publish/{id}")
+    public CoursePublishResult publish(@PathVariable("id")String id) {
+        return courseService.publish(id);//4028e581617f945f01617f9dabc40000
+    }
+    //url传参：{courseId}-----@PathVariable("courseId")
 // key-value传参：@RequestParam("courseId"）
     @Override
     @DeleteMapping("/coursepic/delete")
